@@ -3,16 +3,22 @@ package ru.trandefil.sc.repository;
 import ru.trandefil.sc.api.ProjectRepository;
 import ru.trandefil.sc.model.Project;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProjectRepositoryImpl implements ProjectRepository {
 
     private ProjectRepositoryImpl(){}
 
     private Map<String, Project> projectMap = new HashMap<>();
+
+    {init();}
+
+    private void init(){
+            String id1 = UUID.randomUUID().toString();
+            String id2 = UUID.randomUUID().toString();
+            projectMap.put(id1,new Project(id1,"project1"));
+            projectMap.put(id2,new Project(id2,"project2"));
+    }
 
     @Override
     public Project save(Project project) {
