@@ -16,6 +16,24 @@
         <url-pattern>/simple</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>welcomeServlet</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.WelcomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>welcomeServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getAllProjects</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.ProjectListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getAllProjects</servlet-name>
+        <url-pattern>/getAllProjects</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
