@@ -1,4 +1,4 @@
-package ru.trandefil.sc.servlet;
+package ru.trandefil.sc.servlet.project;
 
 import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.model.Project;
