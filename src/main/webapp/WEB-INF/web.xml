@@ -52,6 +52,43 @@
         <url-pattern>/addProject</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addTask</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.task.AddTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addTask</servlet-name>
+        <url-pattern>/addTask</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateTask</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.task.UpdateTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateTask</servlet-name>
+        <url-pattern>/updateTask</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteTask</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.task.DeleteTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteTask</servlet-name>
+        <url-pattern>/deleteTask</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>tasks</servlet-name>
+        <servlet-class>ru.trandefil.sc.servlet.task.TaskListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>tasks</servlet-name>
+        <url-pattern>/tasks</url-pattern>
+    </servlet-mapping>
+
+
 <!--
     <welcome-file-list>
         <welcome-file>hello.jsp</welcome-file>

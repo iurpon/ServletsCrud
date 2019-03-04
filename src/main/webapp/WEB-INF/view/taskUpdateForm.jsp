@@ -27,17 +27,21 @@
 <section>
     <h3><a href="index.html">Home</a></h3>
     <hr>
-    <jsp:useBean id="project" type="ru.trandefil.sc.model.Project" scope="request"/>
-    <form method="post" action="updateProject">
-        <input type="hidden" name="id" value="${project.id}">
+    <jsp:useBean id="task" type="ru.trandefil.sc.model.Task" scope="request"/>
+    <form method="post" action="updateTask">
+        <input type="hidden" name="id" value="${task.id}">
 
         <dl>
             <dt>Name:</dt>
-            <dd><input type="text" value="${project.name}" name="name"></dd>
+            <dd><input type="text" value="${task.name}" name="name"></dd>
         </dl>
         <dl>
             <dt>Description:</dt>
-            <dd><input type="text" value="${project.description}" size=40 name="description"></dd>
+            <dd><input type="text" value="${task.description}" size=40 name="description"></dd>
+        </dl>
+        <dl>
+            <dt>Project:</dt>
+            <dd><input type="text" value="${task.project.name}"  name="projectName" readonly></dd>
         </dl>
         <button type="submit">Save</button>
     </form>

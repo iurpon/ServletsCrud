@@ -1,7 +1,9 @@
 package ru.trandefil.sc.api;
 
 import ru.trandefil.sc.repository.ProjectRepositoryImpl;
+import ru.trandefil.sc.repository.TaskRepositoryImpl;
 import ru.trandefil.sc.service.ProjectServiceImpl;
+import ru.trandefil.sc.service.TaskServiceImpl;
 
 public class ServiceLocator {
 
@@ -9,6 +11,12 @@ public class ServiceLocator {
         ProjectRepository projectRepository = ProjectRepositoryImpl.getProjectRepository();
         ProjectService projectService = ProjectServiceImpl.getProjectService(projectRepository);
         return projectService;
+    }
+
+    public static TaskService getTaskService(){
+        TaskRepository taskRepository = TaskRepositoryImpl.getTaskRepository();
+        TaskService taskService = TaskServiceImpl.getTaskService(taskRepository);
+        return taskService;
     }
 
 }
