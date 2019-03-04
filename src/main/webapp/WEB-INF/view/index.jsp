@@ -1,4 +1,5 @@
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang>
 <head>
     <meta charset="UTF-8">
     <title>My super project!</title>
