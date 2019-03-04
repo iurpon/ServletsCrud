@@ -16,12 +16,15 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     private void init(){
             String id1 = UUID.randomUUID().toString();
             String id2 = UUID.randomUUID().toString();
-            projectMap.put(id1,new Project(id1,"project1"));
-            projectMap.put(id2,new Project(id2,"project2"));
+            projectMap.put(id1,new Project(id1,"project1","description1"));
+            projectMap.put(id2,new Project(id2,"project2","description2"));
     }
 
     @Override
     public Project save(Project project) {
+        if(project.isNew()){
+            project.setId(UUID.randomUUID().toString());
+        }
         return projectMap.put(project.getId(),project);
     }
 
@@ -46,6 +49,11 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 
     public static ProjectRepository getProjectRepository(){
         return RepositoryHolder.projectRepository;
+    }
+
+    @Override
+    public void deletById(String id) {
+        projectMap.remove(id);
     }
 
 }

@@ -12,6 +12,8 @@ public interface ProjectRepository {
 
     void delete(Project project);
 
+    void deletById(String id);
+
     List<Project> getAll();
 
 }

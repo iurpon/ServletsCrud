@@ -14,4 +14,6 @@ public interface ProjectService {
 
     List<Project> getAll();
 
+    void deleteById(String id);
+
 }

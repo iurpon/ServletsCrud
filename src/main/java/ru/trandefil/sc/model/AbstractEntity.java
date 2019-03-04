@@ -14,4 +14,9 @@ public abstract class AbstractEntity {
     public AbstractEntity(String id) {
         this.id = id;
     }
+
+    public boolean isNew(){
+        return id == null;
+    }
+
 }

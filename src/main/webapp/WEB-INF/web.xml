@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>updateProject</servlet-name>
-        <servlet-class>ru.trandefil.sc.servlet.project.UpdateProjetServlet</servlet-class>
+        <servlet-class>ru.trandefil.sc.servlet.project.UpdateProjectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>updateProject</servlet-name>
@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>deleteProject</servlet-name>
-        <servlet-class>ru.trandefil.sc.servlet.project.DeleteProjetServlet</servlet-class>
+        <servlet-class>ru.trandefil.sc.servlet.project.DeleteProjectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteProject</servlet-name>
@@ -45,7 +45,7 @@
 
     <servlet>
         <servlet-name>addProject</servlet-name>
-        <servlet-class>ru.trandefil.sc.servlet.project.AddProjetServlet</servlet-class>
+        <servlet-class>ru.trandefil.sc.servlet.project.AddProjectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addProject</servlet-name>

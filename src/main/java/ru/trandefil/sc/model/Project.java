@@ -6,7 +6,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class Project extends AbstractEntity {
 
     private String name;
@@ -19,4 +18,12 @@ public class Project extends AbstractEntity {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

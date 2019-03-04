@@ -28,16 +28,16 @@
     <h3><a href="index.html">Home</a></h3>
     <hr>
     <jsp:useBean id="project" type="ru.trandefil.sc.model.Project" scope="request"/>
-    <form method="post" action="projects">
+    <form method="post" action="addProject">
         <input type="hidden" name="id" value="${project.id}">
 
         <dl>
             <dt>Name:</dt>
-            <dd><input type="text" value="${project.name}" size=40 name="name"></dd>
+            <dd><input type="text" value="${project.name}" name="name"></dd>
         </dl>
         <dl>
             <dt>Description:</dt>
-            <dd><input type="text" value="${project.description}" name="description"></dd>
+            <dd><input type="text" value="${project.description}" size=40 name="description"></dd>
         </dl>
         <button type="submit">Save</button>
     </form>
