@@ -6,16 +6,6 @@
 
     <display-name>ServletsCRUD</display-name>
 
-
-    <servlet>
-        <servlet-name>simpleServlet</servlet-name>
-        <servlet-class>ru.trandefil.sc.servlet.TestServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>simpleServlet</servlet-name>
-        <url-pattern>/simple</url-pattern>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>getAllProjects</servlet-name>
         <servlet-class>ru.trandefil.sc.servlet.project.ProjectListServlet</servlet-class>
