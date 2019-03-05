@@ -4,43 +4,26 @@
 <html>
 <head>
     <title>Project</title>
-    <style>
-        dl {
-            background: none repeat scroll 0 0 #FAFAFA;
-            margin: 8px 0;
-            padding: 0;
-        }
-
-        dt {
-            display: inline-block;
-            width: 170px;
-        }
-
-        dd {
-            display: inline-block;
-            margin-left: 8px;
-            vertical-align: top;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="resources/css/input1.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/menu.css">
 </head>
 <body>
-<section>
-    <h3><a href="index.html">Home</a></h3>
-    <hr>
+    <ul class="menu">
+        <li><a class="menu" href="projects">See all Project</a></li>
+        <li><a class="menu" href="tasks">See all Tasks</a></li>
+        <li><a class="menu" href="index.html">Home</a></li>
+    </ul>
     <jsp:useBean id="project" type="ru.trandefil.sc.model.Project" scope="request"/>
-    <form method="post" action="updateProject">
+    <form method="post" action="updateProject" class="ui-form">
+        <h3>Update necessary data</h3>
         <input type="hidden" name="id" value="${project.id}">
-
-        <dl>
-            <dt>Name:</dt>
-            <dd><input type="text" value="${project.name}" name="name"></dd>
-        </dl>
-        <dl>
-            <dt>Description:</dt>
-            <dd><input type="text" value="${project.description}" size=40 name="description"></dd>
-        </dl>
-        <button type="submit">Save</button>
+        <div class="form-row">
+            <input type="text" id="name"  value="${project.name}" name="name" required autocomplete="off"><label for="name">Name</label>
+        </div>
+        <div class="form-row">
+            <input type="text" id="description" value="${project.description}" name="description" required autocomplete="off"><label for="description">Description</label>
+        </div>
+        <p><input type="submit" value="Save"></p>
     </form>
-</section>
 </body>
 </html>

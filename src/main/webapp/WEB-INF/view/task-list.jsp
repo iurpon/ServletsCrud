@@ -14,23 +14,23 @@
 </p>
 <body>
 <table class="blueTable">
-    <tr>
+    <thead>
         <th></th>
         <th>Name</th>
         <th>Description</th>
         <th>Project</th>
         <th>Action</th>
         <th>Action</th>
-    </tr>
+    </thead>
     <c:forEach items="${tasks}" var="task" varStatus="status">
-    <tr align="center" style="color:blue">
+    <tfoot>
         <td>${status.index + 1}</td>
         <td>${task.name}</td>
         <td>${task.description}</td>
         <td>${task.project.name}</td>
         <td><a href="updateTask?id=${task.id}">Update</a></td>
         <td><a href="deleteTask?id=${task.id}">Delete</a></td>
-    </tr>
+    </tfoot>
     </c:forEach>
  </table>
 </body>
