@@ -2,7 +2,6 @@ package ru.trandefil.sc.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -26,4 +25,5 @@ public class Project extends AbstractEntity {
                 ", id='" + id + '\'' +
                 '}';
     }
+
 }

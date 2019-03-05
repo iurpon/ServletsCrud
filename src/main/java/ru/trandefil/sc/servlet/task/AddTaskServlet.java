@@ -33,7 +33,7 @@ public class AddTaskServlet extends HttpServlet {
             return;
         }
         final String description = request.getParameter("description");
-        if(name.isEmpty()){
+        if(description.isEmpty() || description == null){
             logger.info("error -------------------------------------------");
             response.sendRedirect("error");
             return;

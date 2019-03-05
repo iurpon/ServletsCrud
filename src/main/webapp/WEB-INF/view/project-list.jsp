@@ -3,12 +3,17 @@
 <html>
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Добро пожаловать, JSP!</title>
+
+        <style >
+            <%@include file="/WEB-INF/css/blueTable.css"%>
+        </style>
+
   </head>
-  <h2><a href="addProject">Add New Project</a></h2>
+<li><a href="addProject">Add New Project</a></li>
+<li><a href="tasks">See all Tasks</a></li>
+<li><a href="index.html">Home</a></li>
   <body>
-       <h1>Добро пожаловать!</h1>
-           <table class="item-table"  width="59%" border="1" align="left">
+           <table class = "blueTable">
                <tr>
                    <th></th>
                    <th>Name</th>
@@ -18,7 +23,7 @@
                    <th>Action</th>
                </tr>
                 <c:forEach items="${items}" var="project" varStatus="status">
-                    <tr align="center" style="color:blue">
+                    <tr>
                         <td>${status.index + 1}</td>
                          <td>${project.name}</td>
                          <td>${project.description}</td>
