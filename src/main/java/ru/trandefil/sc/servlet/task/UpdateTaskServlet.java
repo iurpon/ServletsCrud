@@ -35,7 +35,7 @@ public class UpdateTaskServlet extends HttpServlet {
         task.setName(name);
         task.setDescription(description);
         taskService.save(task);
-        response.sendRedirect("/tasks");
+        response.sendRedirect("tasks");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

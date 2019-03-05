@@ -15,14 +15,16 @@
                    <th>Description</th>
                    <th>Action</th>
                    <th>Action</th>
+                   <th>Action</th>
                </tr>
-                <c:forEach items="${items}" var="item" varStatus="status">
+                <c:forEach items="${items}" var="project" varStatus="status">
                     <tr align="center" style="color:blue">
                         <td>${status.index + 1}</td>
-                         <td>${item.name}</td>
-                         <td>${item.description}</td>
-                        <td><a href="updateProject?id=${item.id}">Update</a></td>
-                        <td><a href="deleteProject?id=${item.id}">Delete</a></td>
+                         <td>${project.name}</td>
+                         <td>${project.description}</td>
+                        <td><a href="updateProject?id=${project.id}">Update</a></td>
+                        <td><a href="deleteProject?id=${project.id}">Delete</a></td>
+                        <td><a href="addTask?id=${project.id}">Add Task</a></td>
                      </tr>
                 </c:forEach>
   </body>
