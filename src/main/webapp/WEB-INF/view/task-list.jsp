@@ -29,5 +29,6 @@
         <td><a href="deleteTask?id=${task.id}">Delete</a></td>
     </tr>
     </c:forEach>
+ </table>
 </body>
 </html>

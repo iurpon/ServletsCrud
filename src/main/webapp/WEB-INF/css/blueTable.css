@@ -7,7 +7,7 @@ table.blueTable {
 }
 table.blueTable td, table.blueTable th {
   border: 1px solid #AAAAAA;
-  padding: 3px 2px;
+  padding: 10px 10px;
 }
 table.blueTable tbody td {
   font-size: 13px;
@@ -23,7 +23,7 @@ table.blueTable thead {
   border-bottom: 2px solid #444444;
 }
 table.blueTable thead th {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #FFFFFF;
   border-left: 2px solid #D0E4F5;
@@ -43,7 +43,8 @@ table.blueTable tfoot {
   border-top: 2px solid #444444;
 }
 table.blueTable tfoot td {
-  font-size: 14px;
+  font-size: 16px;
+    color: #000000;
 }
 table.blueTable tfoot .links {
   text-align: right;
