@@ -3,12 +3,15 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <style >
-                <%@include file="/WEB-INF/css/blueTable.css"%>
-            </style>
+    <link rel="stylesheet" type="text/css" href="resources/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/blueTable.css">
 </head>
-<li><a href="projects">See All Projects</a></li>
-<li><a href="index.html">Home</a></li>
+<p>
+<ul class="menu">
+    <li><a class="menu" href="projects">See all Project</a></li>
+    <li><a class="menu" href="index.html">Home</a></li>
+</ul>
+</p>
 <body>
 <table class="blueTable">
     <tr>
