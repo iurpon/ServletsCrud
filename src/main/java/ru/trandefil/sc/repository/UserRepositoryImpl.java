@@ -21,7 +21,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     public static void init(){
-        User user = new User(UUID.randomUUID().toString(),"User","user");
+        User user = new User(UUID.randomUUID().toString(),"root","root");
         User admin = new User(UUID.randomUUID().toString(),"Admin","admin");
         users.put(user.getUserName(),user);
         users.put(admin.getUserName(),admin);
@@ -35,7 +35,7 @@ public class UserRepositoryImpl implements UserRepository {
             return null;
         }
         if(!user.getPassword().equals(password)){
-            System.out.println("bas password.");
+            System.out.println("bad password.");
             return null;
         }
         return user;

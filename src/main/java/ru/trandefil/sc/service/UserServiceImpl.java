@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getLoggedUser(String userName, String password) {
-        return null;
+        return userRepository.getLoggedUser(userName,password);
     }
 
     @Override
