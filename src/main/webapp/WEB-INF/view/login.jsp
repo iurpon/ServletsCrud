@@ -16,7 +16,7 @@
     </ul>
     <form method="post" action="login" class="ui-form">
         <h3 class="whiteTextOverride">${message}</h3>
-        <h3>Input necessary data</h3>
+        <h3>Log In</h3>
         <div class="form-row">
             <input type="text"  id="name" name="name" required autocomplete="off"><label for="name">Name</label>
         </div>

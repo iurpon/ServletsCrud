@@ -14,7 +14,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
         // Redrect to Home Page.
-        resp.sendRedirect(req.getContextPath() + "/");
+        req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req,resp);
     }
 
     @Override
