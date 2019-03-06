@@ -11,14 +11,14 @@ public class UserRepositoryImpl implements UserRepository {
 
     public static UserRepository userRepository = new UserRepositoryImpl();
 
+    private static Map<String, User> users = new HashMap<>();
+
     static {
         init();
     }
 
     private UserRepositoryImpl() {
     }
-
-    private static Map<String, User> users = new HashMap<>();
 
     public static void init(){
         User user = new User(UUID.randomUUID().toString(),"User","user");

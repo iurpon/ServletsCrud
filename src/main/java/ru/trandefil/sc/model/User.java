@@ -16,4 +16,13 @@ public class User extends AbstractEntity {
         this.userName = userName;
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
 }

@@ -24,3 +24,8 @@ ul{
      margin-right:5px; /*Добавляем отступ у пунктов меню*/
 
    }
+
+h.whiteTextOverride
+{
+ color: red;
+}
