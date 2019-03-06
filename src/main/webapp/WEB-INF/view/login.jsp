@@ -12,7 +12,6 @@
     <ul class="menu">
         <li><a class="menu" href="projects">See all Project</a></li>
         <li><a class="menu" href="tasks">See all Tasks</a></li>
-        <li><a class="menu" href="index.html">Home</a></li>
     </ul>
     <form method="post" action="login" class="ui-form">
         <h3 class="whiteTextOverride">${message}</h3>
