@@ -5,12 +5,27 @@ import ru.trandefil.sc.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class UserRepositoryImpl implements UserRepository {
 
     public static UserRepository userRepository = new UserRepositoryImpl();
 
-    private Map<String, User> users = new HashMap<>();
+    static {
+        init();
+    }
+
+    private UserRepositoryImpl() {
+    }
+
+    private static Map<String, User> users = new HashMap<>();
+
+    public static void init(){
+        User user = new User(UUID.randomUUID().toString(),"User","user");
+        User admin = new User(UUID.randomUUID().toString(),"Admin","admin");
+        users.put(user.getUserName(),user);
+        users.put(admin.getUserName(),admin);
+    }
 
     @Override
     public User getLoggedUser(String userName, String password) {
@@ -31,7 +46,7 @@ public class UserRepositoryImpl implements UserRepository {
         return users.put(user.getUserName(),user);
     }
 
-    public UserRepository getInstance(){
+    public static UserRepository getInstance(){
         return userRepository;
     }
 

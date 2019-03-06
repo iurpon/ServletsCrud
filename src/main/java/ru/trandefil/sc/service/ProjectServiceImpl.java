@@ -40,7 +40,6 @@ public class ProjectServiceImpl implements ProjectService {
     public static ProjectService getProjectService(ProjectRepository projectRepository){
         if(projectService == null){
             projectService = new ProjectServiceImpl(projectRepository);
-            return projectService;
         }
         return projectService;
     }
