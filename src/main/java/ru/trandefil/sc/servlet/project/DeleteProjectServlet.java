@@ -4,12 +4,14 @@ import ru.trandefil.sc.api.ProjectService;
 import ru.trandefil.sc.api.ServiceLocator;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+@WebServlet("/deleteProject")
 public class DeleteProjectServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
