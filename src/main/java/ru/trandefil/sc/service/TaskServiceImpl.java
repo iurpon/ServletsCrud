@@ -49,4 +49,13 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.getAll();
     }
 
+    @Override
+    public void clear() {
+        taskRepository.clear();
+    }
+
+    @Override
+    public void saveAll(@NonNull final List<Task> tasks) {
+        taskRepository.saveAll(tasks);
+    }
 }

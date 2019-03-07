@@ -16,7 +16,7 @@
   </ul>
   </p>
   <body>
-   <table class = "blueTable">
+   <table class = "blueTable" width = "50%">
        <thead>
            <th></th>
            <th>Name</th>

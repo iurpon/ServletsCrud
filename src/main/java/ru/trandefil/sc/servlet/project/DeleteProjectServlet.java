@@ -2,6 +2,8 @@ package ru.trandefil.sc.servlet.project;
 
 import ru.trandefil.sc.api.ProjectService;
 import ru.trandefil.sc.api.ServiceLocator;
+import ru.trandefil.sc.api.TaskService;
+import ru.trandefil.sc.model.Task;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @WebServlet("/deleteProject")
 public class DeleteProjectServlet extends HttpServlet {
@@ -25,6 +29,12 @@ public class DeleteProjectServlet extends HttpServlet {
         final String id = request.getParameter(("id"));
         final ProjectService projectService = ServiceLocator.getProjectService();
         projectService.deleteById(id);
+        final TaskService taskService = ServiceLocator.getTaskService();
+        final List<Task> taskList = taskService.getAll();
+        final List<Task> collect = taskList.stream().filter(task -> !task.getProject().getId().equals(id))
+                .collect(Collectors.toList());
+        taskService.clear();
+        taskService.saveAll(collect);
         response.sendRedirect("projects");
     }
 

@@ -5,6 +5,7 @@ import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.TaskService;
 import ru.trandefil.sc.model.Project;
 import ru.trandefil.sc.model.Task;
+import ru.trandefil.sc.util.DateUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.logging.Logger;
 
 @WebServlet("/addTask")
@@ -40,7 +42,14 @@ public class AddTaskServlet extends HttpServlet {
             response.sendRedirect("error");
             return;
         }
-        final Task task = new Task(null,name,description,project);
+        final String start = request.getParameter("start");
+        final Date starting = DateUtil.fromString(start);
+
+        final String end = request.getParameter("end");
+        final Date ending = DateUtil.fromString(end);
+        System.out.println(start);
+        System.out.println(end);
+        final Task task = new Task(null,name,description,starting,ending,project);
         final TaskService taskService = ServiceLocator.getTaskService();
         taskService.save(task);
         response.sendRedirect("tasks");

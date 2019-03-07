@@ -5,7 +5,9 @@ import ru.trandefil.sc.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
+
+import static ru.trandefil.sc.util.EntityData.ROOT;
+import static ru.trandefil.sc.util.EntityData.USER;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -20,21 +22,19 @@ public class UserRepositoryImpl implements UserRepository {
     private UserRepositoryImpl() {
     }
 
-    public static void init(){
-        User user = new User(UUID.randomUUID().toString(),"root","root");
-        User admin = new User(UUID.randomUUID().toString(),"Admin","admin");
-        users.put(user.getUserName(),user);
-        users.put(admin.getUserName(),admin);
+    public static void init() {
+        users.put(USER.getUserName(), USER);
+        users.put(ROOT.getUserName(), ROOT);
     }
 
     @Override
     public User getLoggedUser(String userName, String password) {
         final User user = users.get(userName);
-        if(user == null){
+        if (user == null) {
             System.out.println("bad user name.");
             return null;
         }
-        if(!user.getPassword().equals(password)){
+        if (!user.getPassword().equals(password)) {
             System.out.println("bad password.");
             return null;
         }
@@ -43,10 +43,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User save(User user) {
-        return users.put(user.getUserName(),user);
+        return users.put(user.getUserName(), user);
     }
 
-    public static UserRepository getInstance(){
+    public static UserRepository getInstance() {
         return userRepository;
     }
 

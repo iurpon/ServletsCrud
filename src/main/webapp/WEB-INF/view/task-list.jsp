@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,6 +21,8 @@
         <th>Name</th>
         <th>Description</th>
         <th>Project</th>
+        <th>Start Date</th>
+        <th>End Date</th>
         <th>Action</th>
         <th>Action</th>
     </thead>
@@ -29,6 +32,8 @@
         <td>${task.name}</td>
         <td>${task.description}</td>
         <td>${task.project.name}</td>
+        <td><fmt:formatDate value="${task.start}" pattern="yyyy-MM-dd"/></td>
+        <td><fmt:formatDate value="${task.end}" pattern="yyyy-MM-dd"/></td>
         <td><a href="updateTask?id=${task.id}">Update</a></td>
         <td><a href="deleteTask?id=${task.id}">Delete</a></td>
     </tfoot>

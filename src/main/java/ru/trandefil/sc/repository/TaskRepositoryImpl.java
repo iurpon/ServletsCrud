@@ -4,6 +4,7 @@ import ru.trandefil.sc.api.TaskRepository;
 import ru.trandefil.sc.model.Task;
 
 import java.util.*;
+import static ru.trandefil.sc.util.EntityData.*;
 
 public class TaskRepositoryImpl implements TaskRepository{
 
@@ -15,11 +16,23 @@ public class TaskRepositoryImpl implements TaskRepository{
         static TaskRepository taskRepository = new TaskRepositoryImpl();
     }
 
+
     public static TaskRepository getTaskRepository(){
         return TaskRepositoryHolder.taskRepository;
     }
 
-    private Map<String, Task> taskMap = new HashMap<>();
+    private static Map<String, Task> taskMap = new HashMap<>();
+
+    static {
+        init();
+    }
+
+    private static void init(){
+        taskMap.put(TASK1.getId(),TASK1);
+        taskMap.put(TASK2.getId(),TASK3);
+        taskMap.put(TASK3.getId(),TASK3);
+        taskMap.put(TASK4.getId(),TASK4);
+    }
 
     @Override
     public Task save(Task task) {
@@ -48,4 +61,15 @@ public class TaskRepositoryImpl implements TaskRepository{
     public List<Task> getAll() {
         return new ArrayList<>(taskMap.values());
     }
+
+    @Override
+    public void clear() {
+        taskMap.clear();
+    }
+
+    @Override
+    public void saveAll(List<Task> tasks) {
+        tasks.forEach(task -> taskMap.put(task.getName(),task));
+    }
+
 }

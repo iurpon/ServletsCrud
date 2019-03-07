@@ -23,6 +23,12 @@
             <div class="form-row">
                 <input type="text"  id="description" name="description" required autocomplete="off"><label for="description">Description</label>
             </div>
+                        <div class="form-row">
+                            <input type="date"  id="date" name="start" required autocomplete="off"><label for="date">Task start</label>
+                        </div>
+                                    <div class="form-row">
+                                        <input type="date"  id="date" name="end" required autocomplete="off"><label for="date">Task end</label>
+                                    </div>
             <p><input type="submit" value="Save"></p>
         </form>
     </c:if>
@@ -43,6 +49,14 @@
                 <input type="text" id="project" value="${task.project.name}" name="projectName"
                        required autocomplete="off" readonly><label for="project">Project</label>
             </div>
+                        <div class="form-row">
+                            <input type="date" id="start" value="${task.start}" name="start"
+                                   required autocomplete="off" readonly><label for="start">Project</label>
+                        </div>
+                        <div class="form-row">
+                            <input type="date" id="end" value="${task.end}" name="end"
+                                   required autocomplete="off" readonly><label for="end">Project</label>
+                        </div>
             <p><input type="submit" value="Save"></p>
         </form>
     </c:if>

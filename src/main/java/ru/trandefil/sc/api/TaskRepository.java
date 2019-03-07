@@ -16,4 +16,8 @@ public interface TaskRepository {
 
     List<Task> getAll();
 
+    void clear();
+
+    void saveAll(List<Task> tasks);
+
 }

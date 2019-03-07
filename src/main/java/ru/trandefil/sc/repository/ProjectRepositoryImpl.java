@@ -4,6 +4,7 @@ import ru.trandefil.sc.api.ProjectRepository;
 import ru.trandefil.sc.model.Project;
 
 import java.util.*;
+import static ru.trandefil.sc.util.EntityData.*;
 
 public class ProjectRepositoryImpl implements ProjectRepository {
 
@@ -14,10 +15,8 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     {init();}
 
     private void init(){
-            String id1 = UUID.randomUUID().toString();
-            String id2 = UUID.randomUUID().toString();
-            projectMap.put(id1,new Project(id1,"project1","description1"));
-            projectMap.put(id2,new Project(id2,"project2","description2"));
+        projectMap.put(PROJECT1.getId(),PROJECT1);
+        projectMap.put(PROJECT2.getId(),PROJECT2);
     }
 
     @Override

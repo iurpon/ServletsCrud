@@ -20,7 +20,7 @@
             <input type="text"  id="name" name="name" required autocomplete="off"><label for="name">Name</label>
         </div>
         <div class="form-row">
-            <input type="text"  id="password" name="password" required autocomplete="off"><label for="password">Password</label>
+            <input type="password"  id="password" name="password" required autocomplete="off"><label for="password">Password</label>
         </div>
         <p><input type="submit" value="Save"></p>
     </form>

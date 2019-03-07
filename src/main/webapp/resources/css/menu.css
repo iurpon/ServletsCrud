@@ -15,9 +15,9 @@ ul{
      -o-transition: all 0.3s 0.01s ease;
      -webkit-transition: all 0.3s 0.01s ease;
    }
-   a:hover {
-     background:#1C85BB;/*добавляем эффект при наведении*/
-   }
+/*   a:hover {
+     background:#1C85BB;*//*добавляем эффект при наведении*//*
+   }*/
    li {
        display: inline;
      /*float: snap; !*Размещаем список горизонтально для реализации меню*!*/
