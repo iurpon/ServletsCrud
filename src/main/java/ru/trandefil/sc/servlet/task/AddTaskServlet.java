@@ -50,6 +50,8 @@ public class AddTaskServlet extends HttpServlet {
         logger.info("AddTaskServlet doGet()");
         final String projecId = request.getParameter("id");
         request.setAttribute("projectId",projecId);
-        request.getRequestDispatcher("/WEB-INF/view/taskCreateForm.jsp").forward(request,response);
+//        request.getRequestDispatcher("/WEB-INF/view/taskCreateForm.jsp").forward(request,response);
+        request.setAttribute("action","create");
+        request.getRequestDispatcher("/WEB-INF/view/editTask.jsp").forward(request,response);
     }
 }

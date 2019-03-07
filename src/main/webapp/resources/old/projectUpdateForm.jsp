@@ -15,7 +15,7 @@
     </ul>
     <jsp:useBean id="project" type="ru.trandefil.sc.model.Project" scope="request"/>
     <form method="post" action="updateProject" class="ui-form">
-        <h3>Update necessary data</h3>
+        <h3>Update  Project data</h3>
         <input type="hidden" name="id" value="${project.id}">
         <div class="form-row">
             <input type="text" id="name"  value="${project.name}" name="name" required autocomplete="off"><label for="name">Name</label>

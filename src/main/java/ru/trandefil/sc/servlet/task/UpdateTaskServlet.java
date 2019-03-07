@@ -46,6 +46,8 @@ public class UpdateTaskServlet extends HttpServlet {
         final TaskService taskService = ServiceLocator.getTaskService();
         final Task task = taskService.getById(id);
         request.setAttribute("task",task);
-        request.getRequestDispatcher("/WEB-INF/view/taskUpdateForm.jsp").forward(request,response);
+//        request.getRequestDispatcher("/WEB-INF/view/taskUpdateForm.jsp").forward(request,response);
+        request.setAttribute("action","update");
+        request.getRequestDispatcher("/WEB-INF/view/editTask.jsp").forward(request,response);
     }
 }

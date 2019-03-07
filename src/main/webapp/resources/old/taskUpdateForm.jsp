@@ -15,7 +15,7 @@
     </ul>
     <jsp:useBean id="task" type="ru.trandefil.sc.model.Task" scope="request"/>
     <form method="post" action="updateTask" class="ui-form">
-        <h3>Update necessary data</h3>
+        <h3>Update Task data</h3>
         <input type="hidden" name="id" value="${task.id}">
         <div class="form-row">
             <input type="text" id="name"  value="${task.name}" name="name"

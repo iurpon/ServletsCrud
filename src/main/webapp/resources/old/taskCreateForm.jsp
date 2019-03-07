@@ -13,7 +13,7 @@
         <li><a class="menu" href="index.html">Home</a></li>
     </ul>
     <form method="post" action="addTask" class="ui-form">
-        <h3>Input necessary data</h3>
+        <h3>Input Task data</h3>
         <input type="hidden" name="id" value="${projectId}">
         <div class="form-row">
             <input type="text"  id="name" name="name" required autocomplete="off"><label for="name">Name</label>

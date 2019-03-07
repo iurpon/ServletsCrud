@@ -39,7 +39,10 @@ public class AddProjectServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("AddProjectServlet doGet()");
-        request.getRequestDispatcher("/WEB-INF/view/projectCreateForm.jsp").forward(request,response);
+
+//        request.getRequestDispatcher("/WEB-INF/view/projectCreateForm.jsp").forward(request,response);
+        request.setAttribute("action","create");
+        request.getRequestDispatcher("/WEB-INF/view/editProject.jsp").forward(request,response);
     }
 
 }
