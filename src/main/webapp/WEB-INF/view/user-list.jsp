@@ -13,12 +13,12 @@
     <li><a class="menu" href="index.html">Home</a></li>
     <li><a class="menu" href="logout">Logout</a></li>
     <li><a class="menu" href="tasks">See all Tasks</a></li>
+    <li><a class="menu" href="addUser">Add New User</a></li>
 </ul>
 </p>
 <body>
 <table class="blueTable">
     <thead>
-        <th></th>
         <th>Name</th>
         <th>Role</th>
         <th>Action</th>
@@ -26,7 +26,6 @@
     </thead>
     <c:forEach items="${users}" var="user" varStatus="status">
     <tfoot>
-        <td>${status.index + 1}</td>
         <td>${user.userName}</td>
         <td>${user.role}</td>
         <td><a href="updateUser?id=${user.id}">Update</a></td>

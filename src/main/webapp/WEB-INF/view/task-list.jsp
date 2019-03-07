@@ -18,7 +18,6 @@
 <body>
 <table class="blueTable">
     <thead>
-        <th></th>
         <th>Name</th>
         <th>Description</th>
         <th>Project</th>
@@ -29,7 +28,6 @@
     </thead>
     <c:forEach items="${tasks}" var="task" varStatus="status">
     <tfoot>
-        <td>${status.index + 1}</td>
         <td>${task.name}</td>
         <td>${task.description}</td>
         <td>${task.project.name}</td>

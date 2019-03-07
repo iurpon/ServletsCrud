@@ -1,5 +1,6 @@
 package ru.trandefil.sc.service;
 
+import lombok.NonNull;
 import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
@@ -17,16 +18,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getLoggedUser(String userName, String password) {
+    public User getLoggedUser(@NonNull final String userName, @NonNull final String password) {
         return userRepository.getLoggedUser(userName,password);
     }
 
     @Override
-    public User save(User user) {
-        return null;
+    public User save(@NonNull final User user) {
+        return userRepository.save(user);
     }
 
-    public static UserService getInstance(UserRepository userRepository){
+    public static UserService getInstance(@NonNull final UserRepository userRepository){
         if(userService == null){
             userService = new UserServiceImpl(userRepository);
         }

@@ -51,11 +51,11 @@
             </div>
                         <div class="form-row">
                             <input type="date" id="start" value="${task.start}" name="start"
-                                   required autocomplete="off" readonly><label for="start">Project</label>
+                                   required autocomplete="off" ><label for="start">Start Task</label>
                         </div>
                         <div class="form-row">
                             <input type="date" id="end" value="${task.end}" name="end"
-                                   required autocomplete="off" readonly><label for="end">Project</label>
+                                   required autocomplete="off" ><label for="end">End Task</label>
                         </div>
             <p><input type="submit" value="Save"></p>
         </form>
