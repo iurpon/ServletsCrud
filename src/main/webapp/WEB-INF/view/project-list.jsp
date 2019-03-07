@@ -13,10 +13,11 @@
       <li><a class="menu" href="tasks">See all Tasks</a></li>
       <li><a class="menu" href="index.html">Home</a></li>
       <li><a class="menu" href="logout">Logout</a></li>
+      <li><a class="menu" href="users">See all Users</a></li>
   </ul>
   </p>
   <body>
-   <table class = "blueTable" width = "50%">
+   <table class = "blueTable">
        <thead>
            <th></th>
            <th>Name</th>

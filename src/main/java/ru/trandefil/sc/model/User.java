@@ -3,9 +3,6 @@ package ru.trandefil.sc.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.EnumSet;
-import java.util.Set;
-
 @Getter
 @Setter
 public class User extends AbstractEntity {
@@ -14,13 +11,13 @@ public class User extends AbstractEntity {
 
     private String password;
 
-    private Set<Role> roles;
+    private Role role;
 
-    public User(String id, String userName, String password, Role role, Role... roles) {
+    public User(String id, String userName, String password, Role role) {
         super(id);
         this.userName = userName;
         this.password = password;
-        this.roles = EnumSet.of(role, roles);
+        this.role = role;
     }
 
     @Override

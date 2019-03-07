@@ -3,8 +3,7 @@ package ru.trandefil.sc.repository;
 import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.model.User;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static ru.trandefil.sc.util.EntityData.ROOT;
 import static ru.trandefil.sc.util.EntityData.USER;
@@ -42,7 +41,15 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public List<User> getAll() {
+        return new ArrayList<>(users.values());
+    }
+
+    @Override
     public User save(User user) {
+        if(user.isNew()){
+            user.setId(UUID.randomUUID().toString());
+        }
         return users.put(user.getUserName(), user);
     }
 

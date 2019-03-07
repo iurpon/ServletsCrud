@@ -12,7 +12,7 @@
     <li><a class="menu" href="projects">See all Project</a></li>
     <li><a class="menu" href="index.html">Home</a></li>
     <li><a class="menu" href="logout">Logout</a></li>
-    <li><a class="menu" href="users">See all Users</a></li>
+    <li><a class="menu" href="tasks">See all Tasks</a></li>
 </ul>
 </p>
 <body>
@@ -20,23 +20,17 @@
     <thead>
         <th></th>
         <th>Name</th>
-        <th>Description</th>
-        <th>Project</th>
-        <th>Start Date</th>
-        <th>End Date</th>
+        <th>Role</th>
         <th>Action</th>
         <th>Action</th>
     </thead>
-    <c:forEach items="${tasks}" var="task" varStatus="status">
+    <c:forEach items="${users}" var="user" varStatus="status">
     <tfoot>
         <td>${status.index + 1}</td>
-        <td>${task.name}</td>
-        <td>${task.description}</td>
-        <td>${task.project.name}</td>
-        <td><fmt:formatDate value="${task.start}" pattern="yyyy-MM-dd"/></td>
-        <td><fmt:formatDate value="${task.end}" pattern="yyyy-MM-dd"/></td>
-        <td><a href="updateTask?id=${task.id}">Update</a></td>
-        <td><a href="deleteTask?id=${task.id}">Delete</a></td>
+        <td>${user.userName}</td>
+        <td>${user.role}</td>
+        <td><a href="updateUser?id=${user.id}">Update</a></td>
+        <td><a href="deleteUser?id=${user.id}">Delete</a></td>
     </tfoot>
     </c:forEach>
  </table>

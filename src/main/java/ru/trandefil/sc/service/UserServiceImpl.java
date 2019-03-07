@@ -4,6 +4,8 @@ import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 
+import java.util.List;
+
 public class UserServiceImpl implements UserService{
 
     private static UserService userService;
@@ -31,4 +33,8 @@ public class UserServiceImpl implements UserService{
         return userService;
     }
 
+    @Override
+    public List<User> getAll() {
+        return userRepository.getAll();
+    }
 }
