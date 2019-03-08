@@ -22,7 +22,7 @@
         <div class="form-row">
             <input type="password"  id="password" name="password" required autocomplete="off"><label for="password">Password</label>
         </div>
-        <p><input type="submit" value="Save"></p>
+        <p><input type="submit" value="LogIn"></p>
     </form>
 
 </body>

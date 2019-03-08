@@ -1,5 +1,6 @@
 package ru.trandefil.sc.filter;
 
+import ru.trandefil.sc.Main;
 import ru.trandefil.sc.model.User;
 import ru.trandefil.sc.util.SessionUtil;
 
@@ -17,7 +18,8 @@ public class SecurityFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        logger.info("============================================= Security Filter init()");
+        Main.main(null);
     }
 
     @Override
@@ -37,11 +39,11 @@ public class SecurityFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        if(loginUser == null){
-            request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request,response);
+        if (loginUser == null) {
+            request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
             return;
         }
-        chain.doFilter(request,response);
+        chain.doFilter(request, response);
     }
 
     @Override

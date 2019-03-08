@@ -5,6 +5,7 @@ import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.Role;
 import ru.trandefil.sc.model.User;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,14 @@ public class UserUpdateServlet  extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private UserService userService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("-------------------------------------User update doGet() ");
         final String id = req.getParameter("id");
-        final UserService userService = ServiceLocator.getUserService();
+//        final UserService userService = ServiceLocator.getUserService();
         final User user = userService.getById(id);
         req.setAttribute("updating",user);
         req.setAttribute("action","update");
@@ -37,7 +41,7 @@ public class UserUpdateServlet  extends HttpServlet {
         final String password = req.getParameter("password");
         final String role = req.getParameter("role");
         final User user = new User(id,name,password,Enum.valueOf(Role.class,role));
-        final UserService userService = ServiceLocator.getUserService();
+//        final UserService userService = ServiceLocator.getUserService();
         userService.save(user);
         resp.sendRedirect("users");
     }

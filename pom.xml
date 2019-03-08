@@ -16,7 +16,6 @@
 
     <build>
         <finalName>simple</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -31,7 +30,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
             </plugin>
-
 <!--            <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
@@ -40,16 +38,12 @@
                     <filename>${project.build.finalName}.war</filename>
                 </configuration>
             </plugin>-->
-
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
             </plugin>
-
-
         </plugins>
-
     </build>
 
     <dependencies>
@@ -59,7 +53,6 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -67,13 +60,37 @@
             <version>1.18.6</version>
             <scope>provided</scope>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+<!--        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>3.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-core</artifactId>
+            <version>2.4.8.Final</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.jboss.weld/weld-core -->
+        <!-- https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet -->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet</artifactId>
+            <version>2.4.8.Final</version>
+        </dependency>
+
+
+
     </dependencies>
 
 </project>

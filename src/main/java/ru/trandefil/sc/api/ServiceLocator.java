@@ -21,10 +21,10 @@ public class ServiceLocator {
         return taskService;
     }
 
-    public static UserService getUserService(){
+/*    public static UserService getUserService(){
         UserRepository userRepository = UserRepositoryImpl.getInstance();
         UserService userService = UserServiceImpl.getInstance(userRepository);
         return userService;
-    }
+    }*/
 
 }

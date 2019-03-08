@@ -3,14 +3,18 @@ package ru.trandefil.sc.repository;
 import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.model.User;
 
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 
 import static ru.trandefil.sc.util.EntityData.ROOT;
 import static ru.trandefil.sc.util.EntityData.USER;
 
+@ApplicationScoped
+@ManagedBean
 public class UserRepositoryImpl implements UserRepository {
 
-    public static UserRepository userRepository = new UserRepositoryImpl();
+//    public static UserRepository userRepository = new UserRepositoryImpl();
 
     private static Map<String, User> users = new HashMap<>();
 
@@ -51,9 +55,9 @@ public class UserRepositoryImpl implements UserRepository {
         return users.put(user.getUserName(), user);
     }
 
-    public static UserRepository getInstance() {
-        return userRepository;
-    }
+//    public static UserRepository getInstance() {
+//        return userRepository;
+//    }
 
     @Override
     public void deleteById(String id) {

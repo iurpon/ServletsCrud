@@ -5,17 +5,23 @@ import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.List;
 
+@ApplicationScoped
+@ManagedBean
 public class UserServiceImpl implements UserService{
 
-    private static UserService userService;
+//    private static UserService userService;
 
+    @Inject
     private UserRepository userRepository;
 
-    private UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+//    private UserServiceImpl(UserRepository userRepository) {
+//        this.userRepository = userRepository;
+//    }
 
     @Override
     public User getLoggedUser(@NonNull final String userName, @NonNull final String password) {
@@ -27,12 +33,12 @@ public class UserServiceImpl implements UserService{
         return userRepository.save(user);
     }
 
-    public static UserService getInstance(@NonNull final UserRepository userRepository){
+/*    public static UserService getInstance(@NonNull final UserRepository userRepository){
         if(userService == null){
             userService = new UserServiceImpl(userRepository);
         }
         return userService;
-    }
+    }*/
 
     @Override
     public List<User> getAll() {

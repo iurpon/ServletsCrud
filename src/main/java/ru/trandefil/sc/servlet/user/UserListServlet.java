@@ -4,6 +4,7 @@ import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +19,13 @@ public class UserListServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private UserService userService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("TAskListServlet doGet()");
-        final UserService userService = ServiceLocator.getUserService();
+//        final UserService userService = ServiceLocator.getUserService();
         List<User> all = userService.getAll();
         req.setAttribute("users",all);
         req.getRequestDispatcher("/WEB-INF/view/user-list.jsp").forward(req,resp);

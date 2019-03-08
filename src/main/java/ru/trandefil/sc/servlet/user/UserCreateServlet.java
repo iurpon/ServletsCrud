@@ -5,6 +5,7 @@ import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.Role;
 import ru.trandefil.sc.model.User;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,9 @@ public class UserCreateServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private UserService userService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("----------------------------------------CreateUserServlet doGet()");
@@ -32,7 +36,7 @@ public class UserCreateServlet extends HttpServlet {
         final String name = req.getParameter("name");
         final String password = req.getParameter("password");
         final String role = req.getParameter("role");
-        final UserService userService = ServiceLocator.getUserService();
+//        final UserService userService = ServiceLocator.getUserService();
         final User user = new User(null, name, password, Enum.valueOf(Role.class, role));
         userService.save(user);
         List<User> all = userService.getAll();

@@ -1,9 +1,11 @@
 package ru.trandefil.sc.servlet;
 
 import ru.trandefil.sc.api.ServiceLocator;
+import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +17,12 @@ import java.util.logging.Logger;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
+    @Inject
+    private UserService userService;
+
+    @Inject
+    private UserRepository userRepository;
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
     @Override
@@ -28,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         logger.info("LoginServlet doPost()");
         final String name = req.getParameter("name");
         final String password = req.getParameter("password");
-        final UserService userService = ServiceLocator.getUserService();
+//        final UserService userService = ServiceLocator.getUserService();
         final User loginUser = userService.getLoggedUser(name,password);
         System.out.println(loginUser);
         if(loginUser == null){
