@@ -12,7 +12,7 @@ public interface ProjectRepository {
 
     void delete(Project project);
 
-    void deletById(String id);
+    void deleteById(String id);
 
     List<Project> getAll();
 
