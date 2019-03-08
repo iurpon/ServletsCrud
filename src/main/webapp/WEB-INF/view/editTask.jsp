@@ -33,7 +33,8 @@
         </form>
     </c:if>
     <c:if test = "${actions eq 'update'}">
-        <jsp:useBean id="task" type="ru.trandefil.sc.model.Task" scope="request"/>
+        <%--<jsp:useBean id="task" type="ru.trandefil.sc.model.Task" scope="request"/>--%>
+        <c:set var="task" value="${taskEntity}"/>
         <form method="post" action="updateTask" class="ui-form">
             <h3>Update Task data</h3>
             <input type="hidden" name="id" value="${task.id}">
