@@ -14,8 +14,6 @@ import static ru.trandefil.sc.util.EntityData.USER;
 @ManagedBean
 public class UserRepositoryImpl implements UserRepository {
 
-//    public static UserRepository userRepository = new UserRepositoryImpl();
-
     private static Map<String, User> users = new HashMap<>();
 
     static {
@@ -49,15 +47,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User save(User user) {
-        if(user.isNew()){
+        if (user.isNew()) {
             user.setId(UUID.randomUUID().toString());
         }
         return users.put(user.getUserName(), user);
     }
-
-//    public static UserRepository getInstance() {
-//        return userRepository;
-//    }
 
     @Override
     public void deleteById(String id) {

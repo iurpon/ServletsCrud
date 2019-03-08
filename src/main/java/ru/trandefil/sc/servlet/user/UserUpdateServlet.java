@@ -1,6 +1,5 @@
 package ru.trandefil.sc.servlet.user;
 
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.Role;
 import ru.trandefil.sc.model.User;
@@ -15,7 +14,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 @WebServlet("/updateUser")
-public class UserUpdateServlet  extends HttpServlet {
+public class UserUpdateServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
@@ -26,11 +25,10 @@ public class UserUpdateServlet  extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("-------------------------------------User update doGet() ");
         final String id = req.getParameter("id");
-//        final UserService userService = ServiceLocator.getUserService();
         final User user = userService.getById(id);
-        req.setAttribute("updating",user);
-        req.setAttribute("action","update");
-        req.getRequestDispatcher("/WEB-INF/view/editUser.jsp").forward(req,resp);
+        req.setAttribute("updating", user);
+        req.setAttribute("action", "update");
+        req.getRequestDispatcher("/WEB-INF/view/editUser.jsp").forward(req, resp);
     }
 
     @Override
@@ -40,8 +38,7 @@ public class UserUpdateServlet  extends HttpServlet {
         final String name = req.getParameter("name");
         final String password = req.getParameter("password");
         final String role = req.getParameter("role");
-        final User user = new User(id,name,password,Enum.valueOf(Role.class,role));
-//        final UserService userService = ServiceLocator.getUserService();
+        final User user = new User(id, name, password, Enum.valueOf(Role.class, role));
         userService.save(user);
         resp.sendRedirect("users");
     }

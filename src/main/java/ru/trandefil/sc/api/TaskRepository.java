@@ -12,7 +12,7 @@ public interface TaskRepository {
 
     void delete(Task project);
 
-    void deletById(String id);
+    void deleteById(String id);
 
     List<Task> getAll();
 

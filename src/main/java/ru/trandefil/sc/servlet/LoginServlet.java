@@ -1,7 +1,5 @@
 package ru.trandefil.sc.servlet;
 
-import ru.trandefil.sc.api.ServiceLocator;
-import ru.trandefil.sc.api.UserRepository;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 
@@ -21,14 +19,12 @@ public class LoginServlet extends HttpServlet {
     @Inject
     private UserService userService;
 
-    @Inject
-    private UserRepository userRepository;
-
     private Logger logger = Logger.getLogger(this.getClass().getName());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("LoginServlet doGet()");
-        req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -36,17 +32,16 @@ public class LoginServlet extends HttpServlet {
         logger.info("LoginServlet doPost()");
         final String name = req.getParameter("name");
         final String password = req.getParameter("password");
-//        final UserService userService = ServiceLocator.getUserService();
-        final User loginUser = userService.getLoggedUser(name,password);
+        final User loginUser = userService.getLoggedUser(name, password);
         System.out.println(loginUser);
-        if(loginUser == null){
-            req.setAttribute("message","Bad login. Try again.");
-            req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req,resp);
+        if (loginUser == null) {
+            req.setAttribute("message", "Bad login. Try again.");
+            req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
             return;
         }
         final HttpSession httpSession = req.getSession();
-        httpSession.setAttribute("loginUser",loginUser);
-        req.getRequestDispatcher("/index.html").forward(req,resp);
+        httpSession.setAttribute("loginUser", loginUser);
+        req.getRequestDispatcher("/index.html").forward(req, resp);
     }
 
 }

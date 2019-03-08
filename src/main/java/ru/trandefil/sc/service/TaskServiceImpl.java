@@ -5,24 +5,17 @@ import ru.trandefil.sc.api.TaskRepository;
 import ru.trandefil.sc.api.TaskService;
 import ru.trandefil.sc.model.Task;
 
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.List;
 
+@ApplicationScoped
+@ManagedBean
 public class TaskServiceImpl implements TaskService {
 
-    private static TaskService taskService = null;
-
-    private final TaskRepository taskRepository;
-
-    public TaskServiceImpl(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
-
-    public static TaskService getTaskService(TaskRepository taskRepository) {
-        if (taskService == null) {
-            return new TaskServiceImpl(taskRepository);
-        }
-        return taskService;
-    }
+    @Inject
+    private TaskRepository taskRepository;
 
     @Override
     public Task save(@NonNull final Task task) {
@@ -41,7 +34,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void deletById(@NonNull final String id) {
-        taskRepository.deletById(id);
+        taskRepository.deleteById(id);
     }
 
     @Override
@@ -58,4 +51,5 @@ public class TaskServiceImpl implements TaskService {
     public void saveAll(@NonNull final List<Task> tasks) {
         taskRepository.saveAll(tasks);
     }
+
 }

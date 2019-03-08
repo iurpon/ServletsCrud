@@ -4,6 +4,7 @@ import ru.trandefil.sc.api.ProjectService;
 import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.model.Project;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,9 @@ import java.util.logging.Logger;
 public class AddProjectServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
+
+    @Inject
+    private ProjectService projectService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("AddProjectServlet doPost()");
@@ -32,15 +36,12 @@ public class AddProjectServlet extends HttpServlet {
             return;
         }
         final Project project = new Project(null, name, description);
-        final ProjectService projectService = ServiceLocator.getProjectService();
         projectService.save(project);
         response.sendRedirect("projects");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("AddProjectServlet doGet()");
-
-//        request.getRequestDispatcher("/WEB-INF/view/projectCreateForm.jsp").forward(request,response);
         request.setAttribute("action","create");
         request.getRequestDispatcher("/WEB-INF/view/editProject.jsp").forward(request,response);
     }

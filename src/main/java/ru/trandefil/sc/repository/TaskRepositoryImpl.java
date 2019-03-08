@@ -3,23 +3,14 @@ package ru.trandefil.sc.repository;
 import ru.trandefil.sc.api.TaskRepository;
 import ru.trandefil.sc.model.Task;
 
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 import static ru.trandefil.sc.util.EntityData.*;
 
+@ApplicationScoped
+@ManagedBean
 public class TaskRepositoryImpl implements TaskRepository{
-
-    private TaskRepositoryImpl(){
-
-    }
-
-    static class TaskRepositoryHolder{
-        static TaskRepository taskRepository = new TaskRepositoryImpl();
-    }
-
-
-    public static TaskRepository getTaskRepository(){
-        return TaskRepositoryHolder.taskRepository;
-    }
 
     private static Map<String, Task> taskMap = new HashMap<>();
 
@@ -53,7 +44,7 @@ public class TaskRepositoryImpl implements TaskRepository{
     }
 
     @Override
-    public void deletById(String id) {
+    public void deleteById(String id) {
         taskMap.remove(id);
     }
 
