@@ -1,9 +1,9 @@
 package ru.trandefil.sc.servlet.task;
 
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.TaskService;
 import ru.trandefil.sc.model.Task;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,22 +17,24 @@ public class UpdateTaskServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private TaskService taskService;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("UpdateTaskServlet doPost()");
         final String id = request.getParameter("id");
         final String name = request.getParameter("name");
-        if(name.isEmpty() || name == null){
+        if (name.isEmpty() || name == null) {
             logger.info("error -------------------------------------------");
             response.sendRedirect("error");
             return;
         }
         final String description = request.getParameter("description");
-        if(description.isEmpty() || description == null){
+        if (description.isEmpty() || description == null) {
             logger.info("error -------------------------------------------");
             response.sendRedirect("error");
             return;
         }
-        final TaskService taskService = ServiceLocator.getTaskService();
         final Task task = taskService.getById(id);
         task.setName(name);
         task.setDescription(description);
@@ -43,11 +45,10 @@ public class UpdateTaskServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("UpdateTaskServlet doGet()");
         final String id = request.getParameter("id");
-        final TaskService taskService = ServiceLocator.getTaskService();
         final Task task = taskService.getById(id);
-        request.setAttribute("task",task);
-//        request.getRequestDispatcher("/WEB-INF/view/taskUpdateForm.jsp").forward(request,response);
-        request.setAttribute("action","update");
-        request.getRequestDispatcher("/WEB-INF/view/editTask.jsp").forward(request,response);
+        request.setAttribute("task", task);
+        request.setAttribute("action", "update");
+        request.getRequestDispatcher("/WEB-INF/view/editTask.jsp").forward(request, response);
     }
+
 }

@@ -1,9 +1,9 @@
 package ru.trandefil.sc.servlet.task;
 
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.TaskService;
 import ru.trandefil.sc.model.Task;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,16 +18,18 @@ public class TaskListServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private TaskService taskService;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("TAskListServlet doGet()");
-        final TaskService taskService = ServiceLocator.getTaskService();
         List<Task> all = taskService.getAll();
-        request.setAttribute("tasks",all);
-        request.getRequestDispatcher("/WEB-INF/view/task-list.jsp").forward(request,response);
+        request.setAttribute("tasks", all);
+        request.getRequestDispatcher("/WEB-INF/view/task-list.jsp").forward(request, response);
     }
 
 }

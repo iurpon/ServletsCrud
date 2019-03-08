@@ -1,7 +1,6 @@
 package ru.trandefil.sc.servlet.project;
 
 import ru.trandefil.sc.api.ProjectService;
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.model.Project;
 
 import javax.inject.Inject;

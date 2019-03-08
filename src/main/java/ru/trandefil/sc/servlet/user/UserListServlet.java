@@ -1,6 +1,5 @@
 package ru.trandefil.sc.servlet.user;
 
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.UserService;
 import ru.trandefil.sc.model.User;
 

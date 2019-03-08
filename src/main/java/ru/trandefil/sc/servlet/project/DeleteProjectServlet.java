@@ -1,10 +1,10 @@
 package ru.trandefil.sc.servlet.project;
 
 import ru.trandefil.sc.api.ProjectService;
-import ru.trandefil.sc.api.ServiceLocator;
 import ru.trandefil.sc.api.TaskService;
 import ru.trandefil.sc.model.Task;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +20,12 @@ public class DeleteProjectServlet extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    @Inject
+    private ProjectService projectService;
+
+    @Inject
+    private TaskService taskService;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("DeleteProjectServlet doPost()");
     }
@@ -27,9 +33,7 @@ public class DeleteProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("DeleteProjectServlet doGet()");
         final String id = request.getParameter(("id"));
-        final ProjectService projectService = ServiceLocator.getProjectService();
         projectService.deleteById(id);
-        final TaskService taskService = ServiceLocator.getTaskService();
         final List<Task> taskList = taskService.getAll();
         final List<Task> collect = taskList.stream().filter(task -> !task.getProject().getId().equals(id))
                 .collect(Collectors.toList());
