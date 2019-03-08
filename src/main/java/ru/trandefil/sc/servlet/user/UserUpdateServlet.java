@@ -11,32 +11,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Logger;
 
-@WebServlet("/addUser")
-public class CreateUserServlte extends HttpServlet {
+@WebServlet("/updateUser")
+public class UserUpdateServlet  extends HttpServlet {
 
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("----------------------------------------CreateUserServlet doGet()");
-        req.setAttribute("action", "create");
-        req.getRequestDispatcher("/WEB-INF/view/editUser.jsp").forward(req, resp);
+        logger.info("-------------------------------------User update doGet() ");
+        final String id = req.getParameter("id");
+        final UserService userService = ServiceLocator.getUserService();
+        final User user = userService.getById(id);
+        req.setAttribute("updating",user);
+        req.setAttribute("action","update");
+        req.getRequestDispatcher("/WEB-INF/view/editUser.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("------------------------------------------------CreateUserServlet doPost");
+        logger.info("-------------------------------------User update doPost");
+        final String id = req.getParameter("id");
         final String name = req.getParameter("name");
         final String password = req.getParameter("password");
         final String role = req.getParameter("role");
+        final User user = new User(id,name,password,Enum.valueOf(Role.class,role));
         final UserService userService = ServiceLocator.getUserService();
-        final User user = new User(null,name,password,Enum.valueOf(Role.class,role));
         userService.save(user);
-        List<User> all = userService.getAll();
-        req.setAttribute("users", all);
-        req.getRequestDispatcher("/WEB-INF/view/user-list.jsp").forward(req, resp);
+        resp.sendRedirect("users");
     }
 }

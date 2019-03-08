@@ -22,19 +22,17 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     public static void init() {
-        users.put(USER.getUserName(), USER);
-        users.put(ROOT.getUserName(), ROOT);
+        users.put(USER.getId(), USER);
+        users.put(ROOT.getId(), ROOT);
     }
 
     @Override
     public User getLoggedUser(String userName, String password) {
-        final User user = users.get(userName);
+        User user = users.values().stream()
+                .filter(u -> u.getUserName().equals(userName) && u.getPassword().equals(password))
+                .findAny().orElse(null);
         if (user == null) {
-            System.out.println("bad user name.");
-            return null;
-        }
-        if (!user.getPassword().equals(password)) {
-            System.out.println("bad password.");
+            System.out.println("bad user name or password.");
             return null;
         }
         return user;
@@ -55,6 +53,16 @@ public class UserRepositoryImpl implements UserRepository {
 
     public static UserRepository getInstance() {
         return userRepository;
+    }
+
+    @Override
+    public void deleteById(String id) {
+        users.remove(id);
+    }
+
+    @Override
+    public User getById(String id) {
+        return users.get(id);
     }
 
 }
