@@ -8,6 +8,10 @@ import ru.trandefil.sc.model.User;
 import javax.annotation.ManagedBean;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
 import java.util.List;
 
 @ApplicationScoped
@@ -16,6 +20,9 @@ public class UserServiceImpl implements UserService {
 
     @Inject
     private UserRepository userRepository;
+
+    @PersistenceContext(unitName = "EM",type = PersistenceContextType.EXTENDED)
+    private EntityManager entityManager;
 
     @Override
     public User getLoggedUser(@NonNull final String userName, @NonNull final String password) {
@@ -29,7 +36,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return userRepository.getAll();
+        Query query = entityManager.createQuery("select u from User u");
+        return (List<User>)query.getResultList();
     }
 
     @Override

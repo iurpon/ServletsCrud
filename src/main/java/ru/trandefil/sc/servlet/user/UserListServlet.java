@@ -26,8 +26,8 @@ public class UserListServlet extends HttpServlet {
         logger.info("TAskListServlet doGet()");
 //        final UserService userService = ServiceLocator.getUserService();
         List<User> all = userService.getAll();
-        req.setAttribute("users",all);
-        req.getRequestDispatcher("/WEB-INF/view/user-list.jsp").forward(req,resp);
+/*        req.setAttribute("users",all);
+        req.getRequestDispatcher("/WEB-INF/view/user-list.jsp").forward(req,resp);*/
     }
 
     @Override
